@@ -24,7 +24,7 @@ class Ingredient(Base):
     __tablename__ = "ingredient"
     
     id = Column(Integer, primary_key=True)
-    name = Column(String, nullable=False)
+    name = Column(String, nullable=False, unique=True)
     
     def __repr__(self):
         return "<Recipe " \

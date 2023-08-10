@@ -1,5 +1,9 @@
-from sqlalchemy import Column, String, Integer
-from sqlalchemy.orm import declarative_base
+from sqlalchemy import Column, String, Integer, create_engine
+from sqlalchemy.orm import declarative_base, sessionmaker
+
+engine = create_engine("sqlite:///data.db")
+Session = sessionmaker(bind=engine)
+session = Session()
 
 Base = declarative_base()
 
@@ -25,6 +29,11 @@ class Ingredient(Base):
     
     id = Column(Integer, primary_key=True)
     name = Column(String, nullable=False, unique=True)
+    
+    @classmethod
+    def find_by(cls, name):
+        return session.query(cls).filter_by(name=name).all()
+        
     
     def __repr__(self):
         return "<Recipe " \

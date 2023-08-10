@@ -59,7 +59,8 @@ for letter in alphabet_lowercase:
 
         for num in range(1,20):
             ingredient_key = f"strIngredient{num}"
-            if meal[ingredient_key]:
+            if meal[ingredient_key] and not Ingredient.find_by(meal[ingredient_key]):
+                
                 ingredient = Ingredient(name=meal[ingredient_key])
                 
                 session.add(ingredient)

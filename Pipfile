@@ -8,6 +8,7 @@ alembic = "*"
 sqlalchemy = "==1.4.41"
 ipdb = "*"
 requests = "*"
+faker = "*"
 
 [dev-packages]
 

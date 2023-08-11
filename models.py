@@ -36,7 +36,7 @@ class Ingredient(Base):
         
     
     def __repr__(self):
-        return "<Recipe " \
+        return "<Ingredient " \
             + f"id={self.id}, " \
             + f"name={self.name}" \
             + ">"

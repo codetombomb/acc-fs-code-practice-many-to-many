@@ -63,7 +63,9 @@ for letter in alphabet_lowercase:
                 
                 ingredient = Ingredient(name=meal[ingredient_key])
                 
-                session.add(ingredient)
+                recipe.ingredients.append(ingredient)
+                
+                session.add(recipe)
                 session.commit()
                 
 import ipdb;ipdb.set_trace()
